@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/aulaalglin.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="background-color: rgb(126, 15, 34);
+					 border: slategray;
+					 border-width: 10px;
+					 border-style: groove;">
+					<h2 style="color: rgb(250, 250, 250);">Aula 1  <br> Matrizes de Transformações Lineares</h2>
+					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
+					
+				</section>
+				<section> <h4 style="color: blueviolet;">Matrizes como Transformações Lineares</h4>
+					Vamos relembrar alguns conceitos:
+					<ul>
+						<li>$V$ é um espaço vetorial de dimensão $n$</li>
+						<li>$\{ e_1, \cdots , e_n\}$ é uma base de $V$</li>
+						<li>$W$ é um espaço vetorial de dimensão $m$</li>
+						<li>$\{ f_1, \cdots , f_m\}$ é uma base de $W$</li>
+						<li>$T$ éum operador linear de $V$ em $W$</li>
+					</ul>
+				</section>
+
+				<section><h4 style="color: blueviolet;">Matriz de $T$</h4> 
+	
+				\[ T(e_j) = \sum_{i=1}^m a_{ij}f_i\]
+				A matriz $A=(a_{ij})$ é a matriz que representa a transformação $T$ nas bases dadas.
+				</section>
+				<section>
+					<h4 style="color: blueviolet;">Esquema para memorizar</h4>
+					\[
+					 \begin{array}{c|ccc|} 
+					  & T(e_1) & \cdots & T(e_n) \\ \hline 
+				  f_1 & a_{11} & \cdots & a_{1n} \\
+				   \vdots &  & & \\
+				   f_m & a_{m1} & \cdots & a_{mn} \\ \hline
+					\end{array}\]
+				</section>
+				<section>
+				<section>
+					<h4 style="color: brown;">Exemplo</h4>
+					$T: \mathbb{R}^3 \to \mathbb{R}^3$ satisfaz:
+					<p>$T(2e_1 + e_2) = e_3$</p>
+					<p>$T(e_1 - e_2) = 2e_3-6e_2$</p>
+					<p>$T(e_3) + T(e_2)=e_1$</p>
+					Qual a matriz de $T$ na base $\{e_1,e_2,e_3\}$?
+				</section>
+				<section>
+					<h4 style="color: brown;">Resposta</h4>
+					\[
+					A = \begin{pmatrix} 
+					0 & 0 & 1 \\
+					-2 & 4& -4\\
+					1 & -1& 1\end{pmatrix}\]
+				</section>
+			</section>
+			<section>
+				<h4 style="color: blueviolet;">Operador aplicado a um vetor</h4>
+				Vamos tomar um vetor genérico $\mathbf{v} = \sum_{i=1}^n x_i e_1$ e calcular
+				$T(\mathbf{v})$ usando a matriz de representação de $T$.
+				\[ T(\mathbf{v}) = \sum_{i=1}^n x_iT(e_i) = \sum_{i=1}^n x_1\begin{bmatrix} a_{1i}
+				\\ \vdots \\ a_{mi}\end{bmatrix} = A\mathbf{x}\]
+			</section>
+			<section>
+				<h4 style="color: blueviolet;">Mudança de base</h4>
+				\[
+				\begin{array}{ccc}
+				V & \stackrel{T}{\rightarrow} & W \\
+				\{e_1,\dots,e_n\} & A & \{f_1,\dots, f_m\} \\
+				\{e^\prime_1,\dots,e^\prime_n\} & A^\prime & \{f^\prime_1,\dots, f^\prime_m\}
+				\end{array}
+				\]
+				Qual a relação entre $A$ e $A^\prime$?
+			</section>
+			<section>
+				No espaço vetorial $V$ temos
+
+				$$e_j = \sum_{i=1}^n p_{ij} e^\prime_i$$ 
+
+				e analogamente no espaço $W$ 
+
+				$$f_j = \sum_{i=1}^m q_{ij} f^\prime_i$$ 
+			</section>
+			<section>
+				Em $V$, se temos um vetor 
+
+				$$\mathbf{v}=\sum_{r=1}^n x_re_r = \sum_{l=1}^n y_le^\prime_l$$
+				
+				Podemos comparar as coordenadas $\mathbf{x}$ e $\mathbf{y}$ 
+				em duas bases diferentes da seguinte forma:
+				\[ \mathbf{v}=\sum_{r=1}^n x_re_r =\sum_{r=1}^n x_r(\sum_{i=1}^n p_{ir} e^\prime_i)
+				\]
+				reagrupando as somas temos:
+			</section>
+			<section>
+				\[ \mathbf{v}=\sum_{r=1}^n x_re_r =\sum_{i=1}^n (\sum_{r=1}^n p_{ir} x_r) e^\prime_i)
+				\] ou 
+				\[ y_i = (\sum_{r=1}^n p_{ir} x_r) \implies \mathbf{y}=P\mathbf{x}\]
+			</section>
+			<section>
+				Analogamente no espaço $W$, se as coordenadas de um vetor nas diferentes bases
+				
+		       \[
+			   \begin{bmatrix} w_1 \\ \vdots \\ w_m \end{bmatrix} 
+			   \text{ na base } f \text{ e } \begin{bmatrix} u_1 \\ \vdots \\ u_m\end{bmatrix} \text{ em } f^\prime\] 
+				então 
+				\[ \mathbf{u} = Q \mathbf{w}\]
+			</section>
+			<section>
+				<img src="mudavariavel.png"> 
+			</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				dependencies: [
+		             { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true }, ] ,
+				hash: true,
+				math: {
+      					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      					config: 'TeX-AMS_HTML-full',
+                       // pass other options into `MathJax.Hub.Config()`
+      					TeX: { Macros: { RR: "{\\bf R}" } }
+    				},
+
+				chalkboard: {
+        				boardmarkerWidth: 3,
+        				chalkWidth: 4,
+        				chalkEffect: 0.5,
+        				src: null,
+        				readOnly: undefined,
+        				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				transition: 800,
+        				theme: "chalkboard",
+        				background: [ 'rgba(127,127,127,.1)' , path + 'img/greenboard.png' ],
+        				grid: { color: 'rgb(50,50,10,0.5)', distance: 50, width: 2},
+        				eraser: { src: path + 'img/sponge.png', radius: 20},
+        				boardmarkers : [
+                		{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                		{ color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                		{ color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                		{ color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                		{ color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                		{ color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        				],
+        				chalks: [
+                		{ color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                		{ color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                		{ color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                		{ color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                		{ color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                		{ color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        				]
+    				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealChalkboard, RevealMath, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
