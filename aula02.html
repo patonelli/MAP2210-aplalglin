@@ -45,14 +45,108 @@
 				<img src="gausselim.png" alt="figura ilustrando o algoritmo">
 				</section>
 				<section>
-					<h4 style="color: blueviolet;">Esquema para memorizar</h4>
-					\[
-					 \begin{array}{c|ccc|} 
-					  & T(e_1) & \cdots & T(e_n) \\ \hline 
-				  f_1 & a_{11} & \cdots & a_{1n} \\
-				   \vdots &  & & \\
-				   f_m & a_{m1} & \cdots & a_{mn} \\ \hline
+					<h4 style="color: blueviolet;">O algoritmo usando Matrizes elementares</h4>
+					A operação que troca a linha $k$ e $i$ chamaremos de $P^k_i$
+					\[ P^k_i =
+					 \begin{array}{c|ccccc|} 
+					  &   &k  & \cdots& i & \\ \hline 
+				      & I & 0 & 0     & 0 & 0\\
+				    k & 0 & 0 & 0     & 1 & 0\\
+			   \vdots & 0 & 0 & I     & 0 & 0\\
+				    i & 0 & 1 & 0     & 0 & 0\\
+				      & 0 & 0 & 0     & 0 & I\\ \hline
 					\end{array}\]
+				</section>
+				<section>
+					Depois devemos executar as operações que denotamos
+					$$ L_i= L_i-\mu_{ik}L_k = L^k_i$$
+					Estas operações afetam apenas a $i$-ésima linha da matriz e devemos executá-las
+					para $i\in \{k+1,\dots, m\}$
+					<p>
+						Vamos denotar $L^k= L^k_m \cdots L^k_{k+1}$
+					</p>
+				</section>
+				<section>
+					A matriz de $L^k$
+					\[ L^k =
+					 \begin{array}{c|ccccc|} 
+					  &   &k  & \cdots&   & \\ \hline 
+				      & I & 0 & 0     & 0 & 0\\
+				    k & 0 & 1 & 0     & 0 & 0\\
+			          & 0 & -\mu_{{k+1}k} & 1     & 0 & 0\\
+				      & 0 & \vdots & 0     & \ddots & 0\\
+				      & 0 & -\mu_{mk} & 0     & 0 & 1\\ \hline
+					\end{array}\]
+
+				</section>
+				<section>
+					O escalonamento da matriz $M$ segue-se então executando na ordem o
+					seguinte produto de Matrizes
+					<div style="background-color: aqua;">
+					$L^{m-1}P^{m-1}_{i_{m-1}} \cdots $ <i style="color:green;">$L^k P^k_{i_k}$</i>$\cdots$ <i style="color: red;">${L^1P^1_{i_1}}$</i> $M$  </div>
+						onde $i_k \geq k$
+						
+				</section>
+				<section>
+					<section><h4 style="color: blueviolet;">Exemplo </h4>
+						\[ M= \begin{pmatrix} 2 & 3 & 1 \\
+						4 & 5 & 3 \\ 
+						2 & 5 & 1 \end{pmatrix}\]
+						\[ L^1 = \begin{pmatrix} 1 & 0 & 0 \\
+						-2 & 1 & 0 \\ 
+						-1 & 0 & 1 \end{pmatrix}\]
+					</section>
+					<section>
+						\[ L^1 M= \begin{pmatrix} 2 & 3 & 1 \\
+						0 & -1 & 1 \\ 
+						0 & 2 & 0 \end{pmatrix}\]
+						\[ L^2 = \begin{pmatrix} 1 & 0 & 0 \\
+						0 & 1 & 0 \\ 
+						0 & 2 & 1 \end{pmatrix}\]
+
+					</section>
+					<section>
+						\[ L^2 L^1 M= \begin{pmatrix} 2 & 3 & 1 \\
+						0 & -1 & 1 \\ 
+						0 & 0 & 2 \end{pmatrix}\] ou
+						\[ M = (L^1)^{-1}(L^2)^{-1} \begin{pmatrix} 2 & 3 & 1 \\
+						0 & -1 & 1 \\ 
+						0 & 0 & 2 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 \\
+						2 & 1 & 0 \\ 
+						1 & -2 & 1 \end{pmatrix}\begin{pmatrix} 2 & 3 & 1 \\
+						0 & -1 & 1 \\ 
+						0 & 0 & 2 \end{pmatrix}\]
+
+					</section>
+				</section>
+				<section>
+					<b>Definição:</b> Dizemos que uma matriz quadrada de dimensão m, $L=(l_{ij})$
+					é triangular inferior (ou do tipo L) quando 
+					<p>
+					<ol>
+						<li>$l_{ii}=1$</li>
+						<li>$l_{ij}=0$ se $i\lt j$ </li>
+					</ol></p>
+				</section>
+				<section>
+					<b>Definição:</b> Dizemos que uma matriz quadrada de dimensão m, $U=(u_{ij})$
+					é triangular superior (ou do tipo U ) quando $u_{ij}=0$ se 
+					$i \gt j$ 
+
+					<p>
+						<b>Teorema:</b> Toda matriz quadrada pode ser decomposta como
+						o produto $M = PLU$ ou equivalentemente em $PM = LU$
+					</p>
+				</section>
+				<section>
+					<section>
+						<img src="permuta1.png">
+					</section>
+
+					<section>
+						<img src="permuta2.png">
+					</section>
+
 				</section>
 				
 			</div>
