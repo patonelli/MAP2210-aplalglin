@@ -70,29 +70,20 @@
 				</section>
 
 				<section>
-				<section>
-					<h4 style="color: brown;">Exemplo</h4>
-					$T: \mathbb{R}^3 \to \mathbb{R}^3$ satisfaz:
-					<p>$T(2e_1 + e_2) = e_3$</p>
-					<p>$T(e_1 - e_2) = 2e_3-6e_2$</p>
-					<p>$T(e_3) + T(e_2)=e_1$</p>
-					Qual a matriz de $T$ na base $\{e_1,e_2,e_3\}$?
-				</section>
-				<section>
-					<h4 style="color: brown;">Resposta</h4>
-					\[
-					A = \begin{pmatrix} 
-					0 & 0 & 1 \\
-					-2 & 4& -4\\
-					1 & -1& 1\end{pmatrix}\]
-				</section>
+				<img src="mmq.png" alt="projeção ortogonal">
 			</section>
 			<section>
-				<h4 style="color: blueviolet;">Operador aplicado a um vetor</h4>
-				Vamos tomar um vetor genérico $\mathbf{v} = \sum_{i=1}^n x_i e_1$ e calcular
-				$T(\mathbf{v})$ usando a matriz de representação de $T$.
-				\[ T(\mathbf{v}) = \sum_{i=1}^n x_iT(e_i) = \sum_{i=1}^n x_1\begin{bmatrix} a_{1i}
-				\\ \vdots \\ a_{mi}\end{bmatrix} = A\mathbf{x}\]
+				<h4 style="color: blueviolet;">A solução do mmq</h4>
+				Temos que encontrar um vetor $\vec{x}$ tal que $\vec{b} - A\vec{x}$ 
+				seja ortogonal ao espaço $\text{Im}A$, ou seja:
+				$$
+				\begin{gather*}
+				\langle \vec{b} - A\vec{x} , A\vec{y} \rangle = 0 \quad \forall \vec{y} \in \mathbb{R}^n \\
+				\langle A^\prime(\vec{b} - A\vec{x}) , \vec{y} \rangle = 0 \quad \forall \vec{y} \in \mathbb{R}^n \\
+				A^\prime\vec{b} - A^\prime A\vec{x} =0 \text{ ou }\\
+				A^\prime\vec{b} = A^\prime A\vec{x}
+				\end{gather*}
+				$$
 			</section>
 			<section>
 				<h4 style="color: blueviolet;">Mudança de base</h4>
@@ -171,7 +162,7 @@
         				chalkWidth: 4,
         				chalkEffect: 0.5,
         				src: null,
-        				readOnly: undefined,
+        				readOnly: false,
         				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
         				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
         				transition: 800,
