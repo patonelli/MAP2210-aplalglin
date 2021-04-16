@@ -169,6 +169,186 @@
 					</section>
 
 				</section>
+				<section>
+					<section>
+					<h4 style="color: blueviolet;">Exemplo </h4>
+					$$
+  \left[ \begin{array}{cccc}
+     1 & 1 & -1 & 2 \\ 
+     2 & 0 & 1 &1  \\
+     3 & 1 & 0 & 3 \\
+     1 & -1 & 0 & 1 
+     \end{array}\right]
+ $$</section>
+ <section>
+	 $$
+	\begin{equation}
+L_1=\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+-2.0 & 1.0 & 0.0 & 0.0 \\
+-3.0 & 0.0 & 1.0 & 0.0 \\
+-1.0 & 0.0 & 0.0 & 1.0 \\
+\end{array}
+\right]
+\end{equation} $$
+ </section>
+ <section>
+	\begin{equation}
+	L_1A=
+	\left[
+	\begin{array}{cccc}
+	1.0 & 1.0 & -1.0 & 2.0 \\
+	0.0 & -2.0 & 3.0 & -3.0 \\
+	0.0 & -2.0 & 3.0 & -3.0 \\
+	0.0 & -2.0 & 1.0 & -1.0 \\
+	\end{array}
+	\right]
+	\end{equation}
+ </section>
+ <section>
+	 $$
+	\begin{equation}
+	L_2=\left[
+	\begin{array}{cccc}
+	1.0 & 0.0 & 0.0 & 0.0 \\
+	0.0 & 1.0 & 0.0 & 0.0 \\
+	0.0 & -1.0 & 1.0 & 0.0 \\
+	0.0 & -1.0 & 0.0 & 1.0 \\
+	\end{array}
+	\right]
+	\end{equation}
+	$$
+ </section>
+ <section>
+	 $$
+	\begin{equation}
+	L_2L_1A=
+	\left[
+	\begin{array}{cccc}
+	1.0 & 1.0 & -1.0 & 2.0 \\
+	0.0 & -2.0 & 3.0 & -3.0 \\
+	0.0 & 0.0 & 0.0 & 0.0 \\
+	0.0 & 0.0 & -2.0 & 2.0 \\
+	\end{array}
+	\right]
+	\end{equation}$$ 
+
+ </section>
+ <section>
+	 $$
+	\begin{equation}P_3=
+	\left[
+	\begin{array}{cccc}
+	1.0 & 0.0 & 0.0 & 0.0 \\
+	0.0 & 1.0 & 0.0 & 0.0 \\
+	0.0 & 0.0 & 0.0 & 1.0 \\
+	0.0 & 0.0 & 1.0 & 0.0 \\
+	\end{array}
+	\right]
+	\end{equation}
+	$$
+ </section>
+ <section>
+	 $$
+	\begin{equation}
+	U=P_3L_2L_1 =
+	\left[
+	\begin{array}{cccc}
+	1.0 & 1.0 & -1.0 & 2.0 \\
+	0.0 & -2.0 & 3.0 & -3.0 \\
+	0.0 & 0.0 & -2.0 & 2.0 \\
+	0.0 & 0.0 & 0.0 & 0.0 \\
+	\end{array}
+	\right]
+	\end{equation}$$
+ </section>
+ <section>$$
+	 \begin{gather}
+	 P_3L_2L_1=P_3L_2{(P_3P_3)}L_1(P_3P_3) = \\
+	 (P_3L_2P_3)(P_3L_1P_3)P_3 =
+	 L_2^\prime L_1^\prime P_3
+	 \end{gather}
+	 $$
+</section>
+
+<section>$$
+	\begin{equation}L_1^\prime = P_3L_1P_3=
+\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+-2.0 & 1.0 & 0.0 & 0.0 \\
+-1.0 & 0.0 & 1.0 & 0.0 \\
+-3.0 & 0.0 & 0.0 & 1.0 \\
+\end{array}
+\right]
+\end{equation}$$
+</section>
+<section>
+	$$ 
+	\begin{equation}L_2^\prime L_1^\prime =
+\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+-2.0 & 1.0 & 0.0 & 0.0 \\
+1.0 & -1.0 & 1.0 & 0.0 \\
+-1.0 & -1.0 & 0.0 & 1.0 \\
+\end{array}
+\right]
+\end{equation}$$
+</section>
+<section>
+$$	\begin{equation}L=(L_2^\prime * L_1^\prime)^{-1}=
+\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+2.0 & 1.0 & 0.0 & 0.0 \\
+1.0 & 1.0 & 1.0 & 0.0 \\
+3.0 & 1.0 & 0.0 & 1.0 \\
+\end{array}
+\right]
+\end{equation}$$
+</section>
+<section>
+
+	\begin{equation}
+\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+0.0 & 1.0 & 0.0 & 0.0 \\
+0.0 & 0.0 & 0.0 & 1.0 \\
+0.0 & 0.0 & 1.0 & 0.0 \\
+\end{array}
+\right]
+\left[
+\begin{array}{cccc}
+1 & 1 & -1 & 2 \\
+2 & 0 & 1 & 1 \\
+3 & 1 & 0 & 3 \\
+1 & -1 & 0 & 1 \\
+\end{array}
+\right]= \\ 
+\left[
+\begin{array}{cccc}
+1.0 & 0.0 & 0.0 & 0.0 \\
+2.0 & 1.0 & 0.0 & 0.0 \\
+1.0 & 1.0 & 1.0 & 0.0 \\
+3.0 & 1.0 & 0.0 & 1.0 \\
+\end{array}
+\right]\left[
+\begin{array}{cccc}
+1.0 & 1.0 & -1.0 & 2.0 \\
+0.0 & -2.0 & 3.0 & -3.0 \\
+0.0 & 0.0 & -2.0 & 2.0 \\
+0.0 & 0.0 & 0.0 & 0.0 \\
+\end{array}
+\right]
+
+\end{equation}
+</section>
+
+
+				</section>
 				
 			</div>
 		</div>
