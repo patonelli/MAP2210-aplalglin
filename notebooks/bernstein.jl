@@ -48,9 +48,9 @@ md" Agora o ponto de controle"
 
 # ╔═╡ 7ddb0fa7-19c7-47f8-af6e-eeac257f2051
 md"""
-Xc= $(@bind xc Slider(0:5; default = 1, show_value=true ))
+Xc= $(@bind xc Slider(0:0.2:5; default = 1, show_value=true ))
 
-Yc= $(@bind yc Slider(0:5; default = 1, show_value=true ))
+Yc= $(@bind yc Slider(0:0.2:5; default = 1, show_value=true ))
 """
 
 # ╔═╡ 66a4c751-7fc6-4c1e-8384-d5621e8d99b2
@@ -72,7 +72,10 @@ x=[Γ1(s) for s in t]
 y=[Γ2(s) for s in t]
 
 # ╔═╡ 613e494f-5849-4904-bf5d-0802e55f93f4
-plot(x,y, aspect_ratio=:equal)
+begin
+	plot(x,y, aspect_ratio=:equal, label=false)
+	scatter!((xc,yc), label=false)
+end
 
 # ╔═╡ Cell order:
 # ╟─df54c070-9a40-11eb-3ff7-c782f6937b66
@@ -83,7 +86,7 @@ plot(x,y, aspect_ratio=:equal)
 # ╟─1d3b3ce0-b629-4307-a400-5efed3b529aa
 # ╠═fb369ea9-90ea-43b2-9d13-b52f72f98557
 # ╟─13b439a5-8cf6-415a-af86-0fefaad292d9
-# ╟─7ddb0fa7-19c7-47f8-af6e-eeac257f2051
+# ╠═7ddb0fa7-19c7-47f8-af6e-eeac257f2051
 # ╠═66a4c751-7fc6-4c1e-8384-d5621e8d99b2
 # ╠═dc41d708-5404-4059-9f18-c5caebeec10a
 # ╠═cc2b7839-06a3-47a7-98a3-b1f7ed2f6911
