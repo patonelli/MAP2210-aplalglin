@@ -73,7 +73,7 @@
 				<img src="mmq.png" alt="projeção ortogonal">
 			</section>
 			<section>
-				<h4 style="color: blueviolet;">A solução do mmq</h4>
+				<h4 style="color: blueviolet;">A solução do MMQ</h4>
 				Temos que encontrar um vetor $\vec{x}$ tal que $\vec{b} - A\vec{x}$ 
 				seja ortogonal ao espaço $\text{Im}A$, ou seja:
 				$$
@@ -85,54 +85,9 @@
 				\end{gather*}
 				$$
 			</section>
-			<section>
-				<h4 style="color: blueviolet;">Mudança de base</h4>
-				\[
-				\begin{array}{ccc}
-				V & \stackrel{T}{\rightarrow} & W \\
-				\{e_1,\dots,e_n\} & A & \{f_1,\dots, f_m\} \\
-				\{e^\prime_1,\dots,e^\prime_n\} & A^\prime & \{f^\prime_1,\dots, f^\prime_m\}
-				\end{array}
-				\]
-				Qual a relação entre $A$ e $A^\prime$?
-			</section>
-			<section>
-				No espaço vetorial $V$ temos
-
-				$$e_j = \sum_{i=1}^n p_{ij} e^\prime_i$$ 
-
-				e analogamente no espaço $W$ 
-
-				$$f_j = \sum_{i=1}^m q_{ij} f^\prime_i$$ 
-			</section>
-			<section>
-				Em $V$, se temos um vetor 
-
-				$$\mathbf{v}=\sum_{r=1}^n x_re_r = \sum_{l=1}^n y_le^\prime_l$$
-				
-				Podemos comparar as coordenadas $\mathbf{x}$ e $\mathbf{y}$ 
-				em duas bases diferentes da seguinte forma:
-				\[ \mathbf{v}=\sum_{r=1}^n x_re_r =\sum_{r=1}^n x_r(\sum_{i=1}^n p_{ir} e^\prime_i)
-				\]
-				reagrupando as somas temos:
-			</section>
-			<section>
-				\[ \mathbf{v}=\sum_{r=1}^n x_re_r =\sum_{i=1}^n (\sum_{r=1}^n p_{ir} x_r) e^\prime_i)
-				\] ou 
-				\[ y_i = (\sum_{r=1}^n p_{ir} x_r) \implies \mathbf{y}=P\mathbf{x}\]
-			</section>
-			<section>
-				Analogamente no espaço $W$, se as coordenadas de um vetor nas diferentes bases
-				
-		       \[
-			   \begin{bmatrix} w_1 \\ \vdots \\ w_m \end{bmatrix} 
-			   \text{ na base } f \text{ e } \begin{bmatrix} u_1 \\ \vdots \\ u_m\end{bmatrix} \text{ em } f^\prime\] 
-				então 
-				\[ \mathbf{u} = Q \mathbf{w}\]
-			</section>
-			<section>
-				<img src="mudavariavel.png"> 
-			</section>
+			
+			
+			
 			</div>
 		</div>
 
