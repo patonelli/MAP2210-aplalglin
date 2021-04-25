@@ -219,6 +219,90 @@
 \end{equation}
 				</section>
 			</section>
+			<section>
+				<h4 style="color: blueviolet;">A decomposição $QR$</h4>
+				Seja $A$ uma matriz $n \times k$ de posto $k$, vamos representar esta
+				matriz destacando as colunas que são $LI$.
+				$$ A = \left[
+				\begin{array}{cccc}
+				\mathbf{x_1} & \mathbf{x_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right] $$
+			</section>
+
+			<section>
+				O primeiro passo do processo de Gram-Schmidt é dividir $\mathbf{x_1}$ por 
+				sua norma, e isto é obtido pela mutiplicação de matrizes:
+				$$ \left[
+				\begin{array}{cccc}
+				\mathbf{h_1} & \mathbf{x_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]=\left[
+				\begin{array}{cccc}
+				\mathbf{x_1} & \mathbf{x_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]\left[
+				\begin{array}{cccc}
+				\frac{1}{\| \mathbf{x_1}\|} & 0 & \cdots & 0 \\
+				0 & 1 & \cdots & 0 \\
+				\vdots & & & \vdots \\
+				0 & 0 & \cdots & 1   
+				\end{array}\right] $$
+			</section>
+			<section>
+				O segundo passo começa com $\mathbf{a_2} = \mathbf{x_2} - \langle \mathbf{x_2},\mathbf{h_1}\rangle \mathbf{h_1}$ 
+				que pode ser escrito matricialmente
+				$$
+				\left[
+				\begin{array}{cccc}
+				\mathbf{h_1} & \mathbf{a_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]=\left[
+				\begin{array}{cccc}
+				\mathbf{h_1} & \mathbf{x_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]\left[
+				\begin{array}{cccc}
+				1 & \alpha & \cdots & 0 \\
+				0 & 1 & \cdots & 0 \\
+				\vdots& & \ddots & \vdots \\
+				0 & 0& \cdots & 1  
+				\end{array}\right]
+				$$
+				$\alpha = -\langle \mathbf{x_2},\mathbf{h_1}\rangle$
+			</section>
+			<section>
+				$$
+				\begin{gather}
+				\left[
+				\begin{array}{cccc}
+				\mathbf{h_1} & \mathbf{h_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]= \\
+				\left[
+				\begin{array}{cccc}
+				\mathbf{h_1} & \mathbf{a_2} & \cdots & \mathbf{x_k}  
+				\end{array}\right]\left[
+				\begin{array}{cccc}
+				1 & 0 & \cdots & 0 \\
+				0 & \frac{1}{\|\mathbf{a_2}\|} & \cdots & 0 \\
+				\vdots& & \ddots & \vdots \\
+				0 & 0& \cdots & 1  
+				\end{array}\right]
+				\end{gather}$$
+			</section>
+			<section>
+				No fim teremos:
+
+
+				$$\left[
+				\begin{array}{ccc}
+				\mathbf{h_1}  & \cdots & \mathbf{h_k}  
+				\end{array}\right]=\left[
+				\begin{array}{ccc}
+				\mathbf{x_1} &  \cdots & \mathbf{x_k}  
+				\end{array}\right]\left[
+				\begin{array}{cccc}
+				a_{11} & a_{12} & \cdots & a_{1k} \\
+				0 & a_{22} & \cdots & a_{2k} \\
+				\vdots & & \ddots & \vdots \\
+				0 & 0 & \cdots & a_{kk}  
+				\end{array}\right]$$
+			</section>
 			</div>
 		</div>
 
