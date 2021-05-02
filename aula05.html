@@ -27,7 +27,34 @@
 					
 				</section>
 				<section><h4 style="color: blueviolet;">Polinômios de Legendre</h4>
+					Começo com uma observação:  $W$ é um subespaço de um espaço $V$ e 
+					conhecemos uma base ortogonal de $W$, $\{\vec{f}_1, \dots \vec{f}_k\}$ então a 
+					projeção ortogonal de um vetor $\vec{v}$ em $W$ é
+					$$ \Pi_{W}(\vec{v}) = \sum_{i=1}^{k} \frac{\langle \vec{v},\vec{f}_i \rangle}{\langle \vec{f}_i,\vec{f}_i \rangle}$$
+			
 					
+				</section>
+				<section>
+					Se $\vec{p}$ é a projeção procurada
+					\begin{gather}
+					p = \sum x_i\vec{f}_i
+					\langle \vec{v} - \vec{p}, \vec{f}_j \rangle = 0 \\
+					\langle \vec{v}, \vec{f}_j \rangle = \langle \vec{p}, \vec{f}_j \rangle \\
+					x_j = \frac{\langle \vec{p}, \vec{f}_j \rangle}{\langle \vec{f}_j, \vec{f}_j \rangle}
+					\end{gather}
+				</section>
+
+				<section>
+					Podemos agora considerar um espaço vetorial de funções, digamos funções contínuas 
+					$f:[-1,1] \to \mathbb{R}$ e dele o subespaço $\cal{P}_k$ de Polinômios de grau menor ou igual a $k$.
+					consideramos neste nosso espaço o produto interno 
+					$$ \langle f,g \rangle = \int_{-1}^{1}f(x)g(x)dx $$
+				</section>
+
+				<section>
+					Os polinômios $\{ 1 , x , x^2, \dots, x^k\}$ formam uma base de $\cal{P}_k$, mas não uma base
+					ortogonal. Vamos usar o procedimento de Gram-Schmidt para achar uma base ortogonal, mas não necessáriamente 
+					ortonormal.
 				</section>
 
 				<section><h4 style="color: blueviolet;">Polinômios de Tchebichev </h4> 
