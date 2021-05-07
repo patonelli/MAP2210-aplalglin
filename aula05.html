@@ -129,7 +129,7 @@
 				$$ f(x_l) = \sum_{k=0}^{N-1}c_k\text{e}^{ikx_l} $$
 			    </section> 
 				<section>
-					Como $x_l = l\frac{2\pi}{N} = l$ temos que $\text{e}^{ikx_l} = w^{kl}$ onde
+					Como $x_l = l\frac{2\pi}{N} = lx_1\quad$ temos que $\text{e}^{ikx_l} = w^{kl}$ onde
 					$w=\text{e}^{i2\pi/N}$. Denotando $f(x_l)=f_l$ por economia, vamos reescrever
 					o sistema anterior como:
 					$$ f_l = \sum_{k=0}^{N-1}c_k w^{kl}$$
@@ -145,6 +145,74 @@
 					1 & w^{N-1}& w^{2(N-1)}& \cdots & w^{(N-1)^2} 
 					\end{bmatrix} $$
 					vamos chamar de matriz de Fourier. Quais as propriedades da matriz $F$?  
+				</section>
+
+				<section>
+					<b>Proposição 1</b>
+					$$F^{-1} = \frac{1}{N} \bar{F}$$
+				</section>
+
+				<section>
+					<section>
+					<h4>Fast Fourier Transform</h4>
+					Ideia é 
+
+					$$ F_{4}=\begin{bmatrix}
+					1 & 1 & 1 & 1 \\
+					1 & w & w^2 w^3 \\
+					1 & w^2 & w^4 & w^6 \\
+					1 & w^3 & w^6 & w^9
+					\end{bmatrix} \to\begin{bmatrix}
+					1 & 1 & 0 & 0 \\
+					1 & w & 0 & 0 \\
+					0 & 0 & 1 & 1 \\
+					0 & 0 & 1 & w  
+					\end{bmatrix} $$
+				</section>
+				<section>
+
+				</section>
+				<section>
+
+				</section>
+				<section>
+
+				</section>
+
+
+				</section>
+				<section>
+					<h4> Algoritmo de Cooley e Tukey</h4>
+					Vamos supor que $n=2^l$ e $m=\frac{n}{2} = 2^{l-1}$. Para 
+					determinarmos $(c_0, \dots , c_{n-1})$ a partir de $(f_0, \dots f_{n-1})$
+					Faremos:
+					<div style="color: rgb(17, 3, 98);">
+					<ol>
+					<li> $(c_0, \dots , c_n) \to (c_0, \dots , c_{2(m-1)}) \wedge (c_1, \dots , c_{2m-1})$</li>
+
+					<li> Achar $y = F_m c_{par}$ e $z = F_m c_{impar}$ </li>
+					<li> Usar a fórmula de Cooley-Tukey 
+						\begin{gather} 
+						f_j = y_j + w_m^jz_j \\
+						f_{j+m}= y_j - w_m^j z_j
+						\end{gather}
+					</li></ol>
+				</div>
+
+				</section>
+				<section>
+					<section>
+
+					</section>
+					<section>
+
+					</section>
+					<section>
+
+					</section>
+					<section>
+						
+					</section>
 				</section>
 
 				
