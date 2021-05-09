@@ -22,184 +22,31 @@
 					 border: slategray;
 					 border-width: 10px;
 					 border-style: groove;">
-					<h2 style="color: rgb(250, 250, 250);">Tópico 5  <br>Exemplos de projeções ortogonais </h2>
+					<h2 style="color: rgb(250, 250, 250);">Tópico 6  <br> Autovalores e Autovetores </h2>
 					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
 					
 				</section>
-				<section><h4 style="color: blueviolet;">Polinômios de Legendre</h4>
-					Começo com uma observação:  $W$ é um subespaço de um espaço $V$ e 
-					conhecemos uma base ortogonal de $W$, $\{\vec{f}_1, \dots \vec{f}_k\}$ então a 
-					projeção ortogonal de um vetor $\vec{v}$ em $W$ é
-					$$ \Pi_{W}(\vec{v}) = \sum_{i=1}^{k} \frac{\langle \vec{v},\vec{f}_i \rangle}{\langle \vec{f}_i,\vec{f}_i \rangle}\vec{f}_i$$
-			
+				<section><h4 style="color: blueviolet;">Definição auto valores de matrizes e operadores lineares</h4>
+					Se $A$ é uma matriz quadrada $n \times n$ dizemos que um número 
+					$\lambda \in \mathbb{C}$ é um autovalor de $A$ quando existir um vetor 
+					$\vec{x} \neq \vec{0}$ tal que
+					$$ A\vec{x}= \lambda\vec{x} $$
+					Neste caso, os vetores que satisfazem a condição acima serão chamados de 
+					autovetores associados a $\lambda$. 
 					
 				</section>
 				<section>
-					Se $\vec{p}$ é a projeção procurada
-					\begin{gather}
-					\vec{p} = \sum x_i\vec{f}_i \\
-					\langle \vec{v} - \vec{p}, \vec{f}_j \rangle = 0 \\
-					\langle \vec{v}, \vec{f}_j \rangle = \langle \vec{p}, \vec{f}_j \rangle \\
-					x_j = \frac{\langle \vec{p}, \vec{f}_j \rangle}{\langle \vec{f}_j, \vec{f}_j \rangle}
-					\end{gather}
+					<ul>
+						<li> $\lambda=0$ é um autovalor $\iff$ $A$ tem um núcleo não trivial. </li>
+						<li> Mesmo uma matriz real pode ter autovalor complexo, e neste caso os autovetores também 
+							terão coordenadas complexas.
+						</li>
+						<li> O problema $Ax=\lambda x$ é não linear e difícil de resolver na maioria dos casos.</li>
+						
+					</ul>
 				</section>
+				
 
-				<section>
-					Podemos agora considerar um espaço vetorial de funções, digamos funções contínuas 
-					$f:[-1,1] \to \mathbb{R}$ e dele o subespaço $\cal{P}_k$ de Polinômios de grau menor ou igual a $k$.
-					consideramos neste nosso espaço o produto interno 
-					$$ \langle f,g \rangle = \int_{-1}^{1}f(x)g(x)dx $$
-				</section>
-
-				<section>
-					Os polinômios $\{ 1 , x , x^2, \dots, x^k\}$ formam uma base de $\cal{P}_k$, mas não uma base
-					ortogonal. Vamos usar o procedimento de Gram-Schmidt para achar uma base ortogonal, mas não necessáriamente 
-					ortonormal.
-				</section>
-				<section>
-					Vamos definir uma base ortogonal no espaço $\cal{P}_k$, $\{\cal{l}_0(x),\dots,\cal{l}_k(x) \}$ tal que 
-					$ \cal{l}_k(1)=1$.
-					$$
-                    \begin{gather}
-					\cal{l}_0(x) =1  \text{ note que } \langle \cal{l}_0, \cal{l}_0 \rangle = 2 \\
-					\cal{l}_1(x) = x - \frac{\langle \cal{l}_0 , x \rangle}{\langle \cal{l}_0, \cal{l}_0 \rangle} 
-					\cal{l}_0 =x \implies \langle \cal{l}_1, \cal{l}_1 \rangle	= 2/3 \\
-					\end{gather}$$
-
-		
-				</section>
-				<section>
-					\begin{gather}
-					\cal{l}_2 = x^2 - \frac{\langle x^2,\cal{l}_0  \rangle}{\langle \cal{l}_0, \cal{l}_0 \rangle}\cal{l}_0 
-					-\frac{\langle x^2,\cal{l}_1  \rangle}{\langle \cal{l}_1, \cal{l}_1 \rangle}\cal{l}_1 \\
-					= \frac{1}{2}(3x^2 - 1)  \implies \langle \cal{l}_2, \cal{l}_2 \rangle = 2/5\\
-					\cal{l}_3(x) =  \frac{1}{2}(5x^3 - 3x)\implies \langle \cal{l}_3, \cal{l}_3 \rangle = 2/7
-					\end{gather}
-				</section>
-
-				<section>
-					Por exemplo, para aproximar $\sin(\pi x)$ no intervalo $[-1,1]$ por um polinômio de
-					grau menor ou igual a três teríamos
-					\begin{gather} 
-					\sin(\pi x) \approx \sum_{i=0}^3 \frac{\langle \sin(\pi x),\cal{l}_i\rangle}{\langle \cal{l}_i,\cal{l}_i\rangle}\cal{l}_i \\
-					= \frac{3}{\pi}\cal{l}_1 + \frac{5}{\pi^3}(\pi^2 -15)\cal{l}_3 
-					\end{gather}
-				</section>
-
-				<section><h4 style="color: blueviolet;">Polinômios de Tchebichev </h4> 
-					Os polinômios de Legendre não são os únicos polinômios especiais usados na matemática aplicada.
-					Uma outra família interessante são os polinômios de Tchebitchiev (ou Chebychev ou Chebytchev)
-					Um jeito de definí-los é por recorrência:
-					\begin{gather}
-					T_0(x) = 1 \\
-					T_1(x) = x \\
-					T_n(x) = 2xT_{n-1}(x) - T_{n-2}(x) \\
-					T_n(\cos(\theta))=\cos(n\theta)
-					\end{gather}
-
-					
-				</section>
-
-				<section>
-					A família de polinômios de Tchebitchiev é ortogonal em relação ao produto 
-					$$ \langle f,g \rangle = \int_{-1}^{1} \frac{f(x)g(x)}{\sqrt{1-x^2}}dx $$
-				</section>
-
-				<section>
-					<h4 style="color: blueviolet;"> Séries de Fourier </h4>
-
-					Vamos considerar uma função complexa $f(x) \in \mathbb{C}$ com $x \in [-\pi,\pi]$ e verificar se ela pode 
-					ser aproximada por uma função do tipo 
-					$$ \sum_{k=-N}^N c_k \text{e}^{ikx} $$
-					
-
-				</section>
-				<section>
-					Defindo o produto interno agora como
-					$$\langle f , g \rangle = \int_{-\pi}^\pi f(x)\bar{g}(x)dx $$
-					temos que a família $\{\text{e}^{ikx}\}_{k \in \mathbb{Z}}$ é ortogonal então 
-					$c_k= 1/2\pi \langle f, \text{e}^{ikx} \rangle $
-				</section>
-
-				<section> <h4>Transformada de Fourier Discreta </h4>
-				Para fazer a Transformada discreta de Fourier vamos considerar o intervalo
-				$I =[0,2\pi]$ e dividí-lo em $N>0$ partes iguais obtendo os pontos $x_l = l\frac{2\pi}{N}$
-				O problema agora é encontrar os coeficientes $(c_1, \dots, c_{N-1})$ para uma função dada $f(x)$,
-				definida no intervalo $[0,2\pi]$ tal que
-				$$ f(x_l) = \sum_{k=0}^{N-1}c_k\text{e}^{ikx_l} $$
-			    </section> 
-				<section>
-					Como $x_l = l\frac{2\pi}{N} = lx_1\quad$ temos que $\text{e}^{ikx_l} = w^{kl}$ onde
-					$w=\text{e}^{i2\pi/N}$. Denotando $f(x_l)=f_l$ por economia, vamos reescrever
-					o sistema anterior como:
-					$$ f_l = \sum_{k=0}^{N-1}c_k w^{kl}$$
-					
-				</section>
-
-				<section>
-					A matriz 
-					$$ F = \begin{bmatrix} 1 & 1 & 1 & \cdots & 1 \\
-					1 & w & w^2 & \cdots & w^{N-1} \\
-					1 & w^2 & w^4 & \cdots & w^{2(N-1)} \\
-					\vdots & & & & \vdots \\
-					1 & w^{N-1}& w^{2(N-1)}& \cdots & w^{(N-1)^2} 
-					\end{bmatrix} $$
-					vamos chamar de matriz de Fourier. Quais as propriedades da matriz $F$?  
-				</section>
-
-				<section>
-					<b>Proposição 1</b>
-					$$F^{-1} = \frac{1}{N} \bar{F}$$
-				</section>
-
-				<section>
-					<section>
-					<h4>Fast Fourier Transform</h4>
-					Ideia é 
-
-					$$ F_{4}=\begin{bmatrix}
-					1 & 1 & 1 & 1 \\
-					1 & w & w^2 & w^3 \\
-					1 & w^2 & w^4 & w^6 \\
-					1 & w^3 & w^6 & w^9
-					\end{bmatrix} \to\begin{bmatrix}
-					1 & 1 & 0 & 0 \\
-					1 & w & 0 & 0 \\
-					0 & 0 & 1 & 1 \\
-					0 & 0 & 1 & w  
-					\end{bmatrix} $$
-				</section>
-				<section>
-
-				</section>
-				<section>
-
-				</section>
-				<section>
-
-				</section>
-
-
-				</section>
-				<section>
-					<h4> Algoritmo de Cooley e Tukey</h4>
-					Vamos supor que $n=2^l$ e $m=\frac{n}{2} = 2^{l-1}$. Para 
-					determinarmos $(c_0, \dots , c_{n-1})$ a partir de $(f_0, \dots f_{n-1})$
-					Faremos:
-					<div style="color: rgb(17, 3, 98);">
-					<ol>
-					<li> $(c_0, \dots , c_n) \to (c_0, \dots , c_{2(m-1)}) \wedge (c_1, \dots , c_{2m-1})$</li>
-
-					<li> Achar $y = F_m c_{par}$ e $z = F_m c_{impar}$ </li>
-					<li> Usar a fórmula de Cooley-Tukey 
-						\begin{gather} 
-						f_j = y_j + w_n^jz_j \\
-						f_{j+m}= y_j - w_n^j z_j
-						\end{gather}
-					</li></ol>
-				</div>
-
-				</section>
 				<section>
 					<section>
 
