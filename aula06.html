@@ -44,11 +44,45 @@
 
 					</ul>
 				</section>
+				<section>
+				<h4>Como calcular $\lambda$ </h4>
+
+				O primeiro resultado importante é que os autovalores são as 
+				raízes do polinômio característico.
+
+				$$ p(\lambda) = \operatorname{det}(A-\lambda I) $$
+				</section>
+
+				<section>
+					Conhecendo um autovalor $\lambda$ os autovetores associados,
+					ou o autoespaço associado a ele é 
+					$$\operatorname{Ker}(A-\lambda I)$$
+				</section>
+
+
 				
 
 				<section>
-					<section>
-
+					<section> <h4>Exemplos </h4>
+						\begin{gather}
+						\begin{pmatrix}
+						3 & 0 \\
+						0 & 1 
+						\end{pmatrix}\quad\begin{pmatrix}
+						3 & 0 \\
+						0 & 3 
+						\end{pmatrix}\quad\begin{pmatrix}
+						3 & 2 \\
+						0 & 1 
+						\end{pmatrix} \\ 
+						\begin{pmatrix}
+						1 & 2 \\
+						2 & 3 
+						\end{pmatrix}\quad\begin{pmatrix}
+						0 & 1 \\
+						-1 & 0 
+						\end{pmatrix}
+						\end{gather}
 					</section>
 					<section>
 
@@ -60,8 +94,62 @@
 						
 					</section>
 				</section>
+				<section>
+				<section>
+					Se $\lambda_1, \dots , \lambda_n$ são os autovalores de uma 
+					matriz $A$ de dimensão $n\times n$ então
+					\begin{gather}
+					\lambda_1\cdot\lambda_2\cdots\lambda_n = \operatorname{det}A \\
+					\lambda_1 + \lambda_2 + \cdots + \lambda_n = \operatorname{tr}A
+					\end{gather}
+				</section>
+				<section>
+					<b>Lema:</b> Se $A_n$ é uma matriz de dimensão $n\times n$ 
+					então 
+					$$ \operatorname{det}(A_n-\lambda I)= (-\lambda)^n + (-1)^{(n-1)}\operatorname{tr}A_n \lambda^{n-1} + q(\lambda)$$
+					onde $q(\lambda)$ é um polinômio de grau $n-2$
 
-				
+				</section>
+				<section>
+					Prova-se por indução em $n$:
+
+					Para $n=2$ temos 
+					$$ \operatorname{det}\begin{bmatrix}a_{11} -\lambda & a_{12} \\ 
+					a_{21} & a_{22} - \lambda\end{bmatrix} = \lambda^2 -(a_{11}+a_{22}) + \operatorname{det}A$$
+				</section>
+
+				<section>
+				  $$ \operatorname{det}\begin{bmatrix} a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\ 
+				  a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\
+				  \vdots &  & \ddots & \vdots \\
+				  a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
+				  \end{bmatrix} = \\ (a_{11}-\lambda)\operatorname{det}(A-\lambda I)_{11} + q_1(\lambda)
+				  $$
+				  usando a hipótese de indução na matriz $(A-\lambda I)_{11}$ temos o resultado.
+				</section>
+
+				</section>
+
+				<section>
+					Se $A$ tem só autovalores reais, e $n$ autovetores linearmente independentes 
+					então 
+					$$ P^{-1}AP = \begin{bmatrix} 
+					\lambda_1 & 0 & \cdots & 0 \\
+					0 & \lambda_2 & \cdots & 0 \\
+					\vdots & & \ddots & \vdots \\
+					0 & 0 & \cdots & \lambda_n\end{bmatrix}$$
+					e dizemos que $A$ é diagonalizável
+				</section>
+				<section>
+					Faça $P=[\vec{x}_1| \cdots | \vec{x}_n]$, com $\vec{x}_i$ o autovetor associado a $\lambda_i$. 
+					Como os autovetores são LI, $P$ é invertível e denotamos
+					$$ P^{-1} = \begin{bmatrix} 
+					\vec{y}_1^T \\
+					\vdots \\
+					\vec{y}_n^T \end{bmatrix}$$
+					com $\langle \vec{y_i}, \vec{x_j}\rangle = \delta_{ij}$
+				</section>
+					
 			</div>
 		</div>
 
