@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\parindent=0pt
+
+ \addtolength{\textheight}{3.5cm}
+ \addtolength{\oddsidemargin}{-1cm}
+ \addtolength{\evensidemargin}{-1cm}
+ \addtolength{\textwidth}{2cm}
+ \addtolength{\topmargin}{-2.0cm}
+\newcounter{questao}
+\newcommand{\quest}{\stepcounter{questao}{\bf \arabic{questao}.\ }}
+
+\begin{document}
+\hrule
+ {  \sf Aplicações de Álgebra Linear MAP2210 \hfill \fbox{classe 1 - 2021}}
+\hrule
+
+\vspace{0.5cm}
+
+\thispagestyle{empty}
+%\fontsize{14}{16}\selectfont
+
+\quest  Ache os autovalores e autovetores da matriz
+$$ A= \begin{pmatrix}
+    2 & 1 \\ 1 & 2
+\end{pmatrix} $$ depois encontre uma matriz $P$ invertível tal que 
+$AP = P\begin{pmatrix}
+    \lambda_1 & 0 \\ 0 & \lambda_2
+\end{pmatrix}$ 
+
+\vspace{0.3cm}
+
+\quest  Encontre os autovalores e autovetores de 
+$$ A=\begin{pmatrix}
+    3 & 4 \\ 4 & -3
+\end{pmatrix}\text{ e }B=\begin{pmatrix}
+    a & b \\ b & a
+\end{pmatrix} $$
+
+\vspace{0.3cm}
+
+\quest E para as matrizes
+$$ A=\begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    1 & 1 & 1 & 1 \\
+    1 & 1 & 1 & 1 \\
+    1 & 1 & 1 & 1 
+\end{pmatrix}\text{ e } 
+B=\begin{pmatrix}
+    0 & 1 & 0 & 1 \\
+    1 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 1 \\
+    1 & 0 & 1 & 0 
+\end{pmatrix}
+$$
+
+\vspace{0.3cm}
+
+\quest Suponha que $A$ tenha os autovalores $0, \quad 3$ e $5$ com os autovetores respectivos
+$\vec{u}, \quad \vec{v}$ e $\vec{w}$.
+\begin{itemize}
+    \item Forneça uma base para o núcleo e imagem de $A$.
+    \item Encontre as soluções de $Ax=\vec{v} + \vec{w}$
+    \item Mostre que $Ax=\vec{u}$ não tem solução.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\quest Sabe-se que uma matriz $B$ de tamanho $3\times 3$ tem os autovalores $0,$ $1$ e $2$, esta informação 
+é suficiente para encontrar quais dos seguintes itens:
+\begin{itemize}
+    \item o posto de $B$
+    \item o determinante de $B^TB$
+    \item os autovalores de $B^TB$
+    \item os autovalores de $(B+I)^{-1}$
+\end{itemize}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
