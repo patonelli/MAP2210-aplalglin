@@ -119,13 +119,23 @@
 				</section>
 
 				<section>
+					<div style="font-size: 80%;">
 				  $$ \operatorname{det}\begin{bmatrix} a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\ 
 				  a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\
 				  \vdots &  & \ddots & \vdots \\
 				  a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
-				  \end{bmatrix} = \\ (a_{11}-\lambda)\operatorname{det}(A-\lambda I)_{11} + q_1(\lambda)
-				  $$
+				  \end{bmatrix} =  (a_{11}-\lambda)\operatorname{det}(A-\lambda I)_{11} + q_1(\lambda)
+				  $$</div>
 				  usando a hipótese de indução na matriz $(A-\lambda I)_{11}$ temos o resultado.
+				</section>
+				<section>
+					$$ \operatorname{det}(A-\lambda I)_{11}=
+					\operatorname{det}\begin{bmatrix}  
+					 a_{22}-\lambda & \cdots & a_{2n} \\
+					\vdots &  \ddots & \vdots \\
+					a_{n2} & \cdots & a_{nn}-\lambda
+					\end{bmatrix}$$ 
+					$ q_1(\lambda)$ é um polinômio de grau $n-2$
 				</section>
 
 				</section>
