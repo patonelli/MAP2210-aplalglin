@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Aula 09</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/aulaalglin.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="background-color: rgb(126, 15, 34);
+					 border: slategray;
+					 border-width: 10px;
+					 border-style: groove;">
+					<h2 style="color: rgb(250, 250, 250);">Tópico 9 <br> A exponencial de matrizes: aplicações </h2>
+					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
+				</section>
+
+				<section>
+					<h4 style="color: green;">Exponencial de uma matriz</h4> 
+
+					$$ \exp(A)=\sum_{k=0}^\infty \frac{A^k}{k!} $$
+
+					Tem um problema: convergência! Que vamos deixar passar problema 
+					enquanto.
+				</section>
+
+				<section>
+					<h4>Propriedades da exponencial.</h4>
+					<ul>
+						<li>$\exp(0) = I$</li>
+						<li>$\exp(A+B)=\exp(A)\exp(B)$ se $AB=BA$</li>
+						<li>$\exp(PAP^{-1})=P\exp(A)P^{-1}$</li>
+						<li style="color: darkblue;">$\frac{d \exp(tA)}{dt}=A\exp(tA)$</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h4>Exemplo 1</h4>
+						$$ A = \begin{bmatrix} 
+						-2 & 0 \\ 0 & 3
+						\end{bmatrix} \text{ resposta } \exp(A) = \begin{bmatrix} 
+						\text{e}^{-2} & 0 \\ 0 & \text{e}^3
+						\end{bmatrix}$$
+					</section>
+					<section>
+						<h4>Exemplo 2</h4>
+						$$ A = \begin{bmatrix} 
+						2 & 1 \\ 1 & 2
+						\end{bmatrix} \text{ resposta } \exp(A) = \frac{1}{2}\begin{bmatrix} 
+						\text{e}+\text{e}^3 & -\text{e}+\text{e}^3 \\ -\text{e}+\text{e}^3 & \text{e}+\text{e}^3\end{bmatrix}$$
+					</section>
+					<section>
+						<h4>Exemplo 3</h4>
+						$$ A = \begin{bmatrix} 
+						0 & \theta \\ -\theta & 0
+						\end{bmatrix} \text{ resposta } \exp(A) = \begin{bmatrix} 
+						\cos{\theta} & \sin{\theta} \\ -\sin{\theta} & \cos{\theta}\end{bmatrix}$$
+					</section>
+					<section>
+						<h4>Exemplo 4</h4>
+						$$ A = \begin{bmatrix} 
+						0 & \lambda \\ 0 & 0
+						\end{bmatrix}$$
+
+					</section>
+					<section>
+						<h4>Exemplo 5</h4>
+						$$ A = \begin{bmatrix} 
+						0 & x \\ x & 0
+						\end{bmatrix}$$
+					</section>
+					<section>
+						<h4>Exemplo 6</h4>
+						$$ A = \begin{bmatrix} 
+						3 & 2 \\ -2 & 3
+						\end{bmatrix}$$
+					</section>
+
+
+
+
+				</section>
+
+				<section>
+					<em> Observação:</em> Para toda matriz $A$, $\exp(A)$ é invertível já que:
+
+					$$ I = \exp(0)= \exp(A - A)= \exp(A)\exp(-A) $$
+				</section>
+
+				<section>
+					\begin{gather}
+					\color{blue}{\frac{d \exp(tA)}{dt}=A\exp(tA)} \\
+					\frac{d \exp(tA)}{dt}= \lim_{h \to 0} \frac{\exp(tA + hA) - \exp(tA)}{h} \\ 
+					\lim_{h \to 0} \frac{(\exp(hA) -I)\exp(tA)}{h}
+					\end{gather}
+				</section>
+				<section>
+					\begin{gather}
+					\frac{(\exp(hA) -I)}{h} =\frac{(\sum_{k=1}^\infty \frac{h^kA^k}{k!})}{h} \\
+					= \frac{h(A + hA^2/2!+ \cdots + h^{k-1}A^k/k!+ \cdots)}{h} \\
+					\lim_{h\to 0}\frac{(\exp(hA) -I)}{h} = A
+					\end{gather}
+				</section>
+				<section>
+					<h4>resolução de Equações diferencias ordinárias</h4>
+					Sistema linear autônomo:
+					\begin{gather} 
+					\dot{x}_1 =a_{11}x_1 + a_{12}x_2+ \cdots + a_{1n}x_n \\
+					\dot{x}_2 =a_{21}x_1 + a_{22}x_2+ \cdots + a_{2n}x_n \\
+					\vdots \\
+					\dot{x}_n =a_{n1}x_1 + a_{n2}x_2+ \cdots + a_{nn}x_n \\
+					\dot{\vec{x}} = A\vec{x}
+					\end{gather} 
+					
+				</section>
+				
+				<section>
+					A solução geral deste sistema é
+					$$ \vec{x}(t) = \exp({(t-t_0)A})\vec{x}(t_0)$$
+				</section>
+
+
+				<section>
+				<section>
+					<h4>Exemplo 1</h4>
+					\begin{gather}
+					\frac{du}{dt}=Au = \begin{bmatrix}-2 & 1 \\ 1 & -2\end{bmatrix}u(t) \\
+					u(0) = \begin{bmatrix}3 \\ 2\end{bmatrix}
+					\end{gather} 
+				</section>
+				<section></section>
+				<section></section>
+				<section></section>
+
+				</section>
+				<section>
+					<section>
+						<h4>Exemplo 2</h4>
+						\begin{gather}
+						\ddot{x} +4\dot{x} + 5x =0 \\
+						x(0)=0 \text{ e } \dot{x}(0)=1
+						\end{gather}
+					</section>
+					<section>
+
+					</section>
+					<section>
+					</section>
+				</section>
+					
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				dependencies: [
+		             { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true }, ] ,
+				hash: true,
+				math: {
+      					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      					config: 'TeX-AMS_HTML-full',
+                       // pass other options into `MathJax.Hub.Config()`
+      					TeX: { Macros: { RR: "{\\bf R}" } }
+    				},
+
+				chalkboard: {
+        				boardmarkerWidth: 3,
+        				chalkWidth: 4,
+        				chalkEffect: 0.5,
+        				src: null,
+        				readOnly: false,
+        				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				transition: 800,
+        				theme: "chalkboard",
+        				background: [ 'rgba(127,127,127,.1)' , path + 'img/greenboard.png' ],
+        				grid: { color: 'rgb(50,50,10,0.5)', distance: 50, width: 2},
+        				eraser: { src: path + 'img/sponge.png', radius: 20},
+        				boardmarkers : [
+                		{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                		{ color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                		{ color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                		{ color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                		{ color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                		{ color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        				],
+        				chalks: [
+                		{ color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                		{ color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                		{ color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                		{ color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                		{ color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                		{ color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        				]
+    				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealChalkboard, RevealMath, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
