@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\parindent=0pt
+
+ \addtolength{\textheight}{3.5cm}
+ \addtolength{\oddsidemargin}{-1cm}
+ \addtolength{\evensidemargin}{-1cm}
+ \addtolength{\textwidth}{2cm}
+ \addtolength{\topmargin}{-2.0cm}
+\newcounter{questao}
+\newcommand{\quest}{\stepcounter{questao}{\bf \arabic{questao}.\ }}
+
+\begin{document}
+\hrule
+ {  \sf Aplicações de Álgebra Linear MAP2210 \hfill \fbox{Lista 3 - 2021}}
+\hrule
+
+\vspace{0.5cm}
+
+\thispagestyle{empty}
+%\fontsize{14}{16}\selectfont
+
+\quest  Achar os autovalores e autovetores da matriz
+$$ A = \begin{bmatrix}
+  0 & 1 & 0 \\ 0 & 0 & 1 \\ a & -1 & a
+\end{bmatrix} $$
+
+\vspace{0.3cm}
+
+\quest  Observa-se o fluxo entre três bairros de uma cidade $A$ $B$ e $C$. O fluxo
+anual é estimado assim
+\begin{itemize}
+  \item metade da população do bairro $A$ muda-se para o bairro $B$
+  \item $20\%$ da população do bairro $A$ muda-se para 0 bairro $C$
+  \item $30\%$ da população do bairro $B$ muda-se para 0 bairro $C$
+  \item Do bairro $C$ $40\%$ vão para $A$ e $20\%$ vão para $B$
+\end{itemize}
+Monte uma equação de diferenças para a distribuição anual da população dos três bairros, que se mantém 
+constante ( = 300.000 habitantes!). E ache para que valores tende a população quando iniciamos
+com $100.000$ pessoas em cada bairro.
+
+\vspace{0.3cm}
+
+\quest Ache a exponencial $\exp(A)$ da matriz:
+$$ A = \begin{bmatrix}
+  3 & 2 & 0 \\ 0 & 3 & 1 \\ 0 & 0 & 3 
+\end{bmatrix} $$
+
+\vspace{0.3cm}
+
+\quest Ache a solução da equação diferencial
+
+\begin{gather*}
+  \dot{x}_1 = -3x_1 + x_2 -x_3 \\
+  \dot{x}_2 = x_1 -3x_2 + x_3 \\
+  \dot{x}_3 = -x_1 + x_2 -3x_3 \\
+  x_1(0)=1 \quad x_2(0)=0 \quad x_3(0) = 1
+\end{gather*}
+
+\vspace{0.3cm}
+
+\quest Verifique se a matriz 
+$$ A =\begin{bmatrix}
+  4 & 2 \\ -2 & 0 
+\end{bmatrix} $$ é diagonalizável e
+ache $\exp(tA)$.
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
