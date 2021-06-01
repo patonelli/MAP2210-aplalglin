@@ -69,6 +69,46 @@
 
 				</section>
 
+				<section>
+					Uma matriz $A \in \mathbb{R}^{n\times n}$ é chamada simétrica se $A=A^T$ e anti-simétrica se $A+A^T=0$.
+					<p> Se $A$ é anti-simétrica então $\exp(A)$ é ortogonal </p>
+				</section>
+				
+				<section>
+					Considerando agora as matrizes com coeficientes complexos $A \in \mathbb{C}^{n\times n}$ temos as seguintes definições 
+					<ul>
+						<li> $A^H = \bar{A}^T$</li>
+						<li> $A$ é hermitiana se $A^H = A$</li>
+						<li> $A$ é unitária se $A.A^H=I$</li>
+					</ul>
+				</section>
+
+				<section>
+					Se $A$ é hermitiana e $x\in \mathbb{C}^n$ então $x^HAx \in \mathbb{R}$	
+					<p>Basta tomar o conjugado para obter o reultado!</p>
+
+
+
+				</section>
+				<section>
+					Se $A$ é hermitiana então os autovalores são reais.
+					\begin{gather}
+					Ax=\lambda x \implies \langle Ax , x \rangle = \lambda \langle x, x \rangle \\
+					\lambda = \frac{ \langle Ax , x \rangle}{\langle x , x \rangle} \in \mathbb{R}
+					\end{gather} 
+
+				</section>
+
+				<section>
+					Se $A$ é hermitiana e $x_1$ e $x_2$ são autovetores associados a autovalores diferentes, $\lambda_1$ e $\lambda_2$,
+					então $x_1$ e $x_2$ são ortogonais 
+					\begin{gather} 
+					\langle Ax_1 , x_2 \rangle = \langle x_1 , Ax_2 \rangle \implies \\
+					\lambda_1 \langle x_1 , x_2 \rangle = \lambda_2 \langle x_1 , x_2 \rangle \\
+					(\lambda_1 -\lambda_2)\langle x_1 , x_2 \rangle = 0
+					\end{gather}
+				</section>
+
 				
 					
 			</div>
