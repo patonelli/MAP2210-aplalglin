@@ -44,31 +44,70 @@
 					</p>
 				</section>
 				<section>
+
+				<section>
 					<h4 style="color: blue;">Exemplos</h4>
-					
+					$$ \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}\text{ e }\begin{bmatrix} 
+					0 & 1 \\ 0 & 0 \end{bmatrix}$$ 
+					não são equivalentes apesar de ter o mesmo polinômio característico.
+				</section>
+
+				<section>
+					A única matriz equivalente à identidade é ela mesma
 				</section>
 				<section>
-					
+					$$ \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}\text{ e }\begin{bmatrix} 
+					\frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix}$$ 
+					são equivalentes
+				</section>
+				</section>
+
+				<section>
+					<h4>Lema de Schur</h4>
+					Se $A \in \mathbb{C}^{n\times n}$ é uma matriz qualquer então 
+					existe uma matriz unitária $U$ tal que 
+					$$ U^{H}AU = T$$ onde $T$ é uma matriz triangular superior
 				</section>
 				<section>
+					Ilustração da prova:
+
 					
 
 				</section>
 
 				<section>
+					<h4>Lema de Schur para matrizes Hermitianas</h4>
+
+					Se $A=A^H$ e $U$ é uma matriz unitária tal que $U^HAU =T$ 
+					então
+					\begin{gather} 
+					(U^HAU)^H = T^H \implies \\
+					T^H = U^H A^H U =T
+					\end{gather}
+					Portanto $T$ é diagonal
+
+				</section>
+				
+				<section>
+					<p> Uma matriz $A$ é normal quando $AA^H = A^HA.$ </p>
+					<p> A matriz triangular $T$ do Lema de Schur é diagonal se, e somente se 
+						 matriz $A$ é normal
+					</p>
 					
 				</section>
 				
 				<section>
-					
-				</section>
+					Se $A$ é normal temos:
+				\begin{gather}
+				U^HAU =T \text{ e } T^H = U^HA^H U \implies \\
+				TT^H = U^HAUU^HA^H U \\ =U^HAA^H U = U^HA^HA U =T^HT
+				\end{gather}
+				Então $T$ é normal
 
-				<section>
-					
 
 				</section>
 				<section>
-					
+					Se $T$ é normal e triangular superior, então T é normal
 
 				</section>
 
