@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Aula 12 - Forma de Jordan </title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/aulaalglin.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="background-color: rgb(126, 15, 34);
+					 border: slategray;
+					 border-width: 10px;
+					 border-style: groove;">
+					<h2 style="color: rgb(250, 250, 250);">Tópico 12 <br> Forma Canônica de Jordan
+					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
+				</section>
+
+				<section>
+					<h4 style="color: green;"> A Forma de Jordan </h4> 
+					<p> Uma matriz $A\in \mathbb{C}^{n\times n}$ com $s$ autovetores 
+						linearmente independentes, é semelhante a uma matriz em blocos:
+					</p>
+
+					$$ J = \begin{bmatrix} J_1 & 0 & \cdots & 0 \\
+					0 & J_2 & \cdots & 0 \\
+					\vdots & & \ddots & \vdots \\
+					0 & 0 & \cdots & J_s\end{bmatrix} $$
+					
+				</section>
+				<section>
+					<p> Cada bloco de Jordan tem a forma.</p>
+					$$ J_i = \begin{bmatrix}
+					\lambda_i & 1 & 0 & \cdots & 0 \\
+					0 & \lambda_i & 1 & \cdots & 0 \\
+					\vdots & & \ddots & & \vdots \\
+					0 & 0 & \cdots & 0 & \lambda_i \end{bmatrix}$$
+				
+				</section>
+				
+
+				<section>
+					<h4>Autovetores generalizados</h4>
+					<p>Para achar a forma de Jordan, precisamos dos autovetores generalizados</p>
+					Se $\color{green}{x_1}$ é um autovetor de $A$ associado a $\lambda$, então o conjunto de vetores
+					$\{ \color{green}{x_1}, x_2, \dots, x_k\}$  que satisfaz
+					$$ \left( A - \lambda I\right)x_{i+1} = x_i $$ são os autovetores generalizados de ordem $i$.
+
+				</section>
+
+				<section>
+					<p>Para achar os autovetores generalizados, estudamos as matrizes nilpotentes </p>
+					<p> $A$ é nilpotente de ordem $k$ se $A^k=0$ e $A^{k-1}\neq 0$</p>
+					ou 
+					<p>$A$ é nilpotente se e somente se $0$ é um autovalor de multiplicidade $n$</p>
+				</section>
+				<section>
+					<p> vamos construir uma sequência de autovetores generalizados de $A$ </p>
+					<p>Como $A^{k-1}\neq 0$ então existe um vetor $x \neq 0$ tal que $y=A^{k-1}x$ também 
+					é diferente de zero.</p>
+				</section>
+				<section>
+					<p>Note $Ay = A^{k}x = 0$ então vamos renomear $\color{green}{x_1}=y$.</p>
+					<p>Note que neste caso todos os autovalores são nulos, então $(A-\lambda I)=A$</p> 
+					<p>Como $x_1 = A^{k-1}x = A(A^{k-2}x)$ renomeamos $x_2 = A^{k-2}x$ ou ... </p>
+					$$ x_i = A^{k-i}x \text{ e } x_k =x $$
+				</section>
+				<section>
+					<p>$\left\{ \color{green}{x_1},x_2,\dots,x_k\right\}$ é linearmente independente.</p>
+				</section>
+				<section>
+					<p>$\left\{ \color{green}{x_1},x_2\right\}$ é LI pois se $x_2 = a x_1$ então $x_1=A 
+						x_2 = a Ax_1 =0$ contra a hipótese.  
+					</p>
+					<p>Agora suponha que $\left\{ \color{green}{x_1},x_2,\dots,x_{l-1}\right\}$ é LI e que </p>
+				  \begin{gather}\alpha_1 x_1 + \cdots + \alpha_{l-1}x_{l-1} + \alpha_lx_l = 0 \implies \\
+				  \alpha_1 Ax_1 + \cdots + \alpha_{l-1}Ax_{l-1} + \alpha_lAx_l = 0 \\
+				  \alpha_2 x_1 + \cdots + \alpha_{l}x_{l-1}  = 0 \implies \alpha_i =0 
+				  \end{gather}
+				</section>
+
+				
+				
+					
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				dependencies: [
+		             { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true }, ] ,
+				hash: true,
+				math: {
+      					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      					config: 'TeX-AMS_HTML-full',
+                       // pass other options into `MathJax.Hub.Config()`
+      					TeX: { Macros: { RR: "{\\bf R}" } }
+    				},
+
+				chalkboard: {
+        				boardmarkerWidth: 3,
+        				chalkWidth: 4,
+        				chalkEffect: 0.5,
+        				src: null,
+        				readOnly: false,
+        				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				transition: 800,
+        				theme: "chalkboard",
+        				background: [ 'rgba(127,127,127,.1)' , path + 'img/greenboard.png' ],
+        				grid: { color: 'rgb(50,50,10,0.5)', distance: 50, width: 2},
+        				eraser: { src: path + 'img/sponge.png', radius: 20},
+        				boardmarkers : [
+                		{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                		{ color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                		{ color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                		{ color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                		{ color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                		{ color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        				],
+        				chalks: [
+                		{ color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                		{ color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                		{ color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                		{ color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                		{ color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                		{ color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        				]
+    				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealChalkboard, RevealMath, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
