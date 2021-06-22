@@ -90,12 +90,58 @@
 					</p>
 					
 				</section>
+				<section><h4 style="color: green;"> Formas quadráticas </h4>
+					<p>Se $A$ é uma matriz simétrica então a função 
+						$f_A: \mathbb{R}^n \to \mathbb{R}$ definida por $f_A(x)=\langle x,Ax \rangle$ 
+						é uma forma quadrática. Se $A$ é definida positiva, a forma quadrática também é dita 
+						definida positiva.
+					</p>
+				</section>
+
 				<section>
-					
+					<h4 style="color: green;"> Elipsoides </h4> 
+					No caso de uma matriz definida $A$ positiva o conjunto
+					$$ \mathcal{E} = \{ x\in \mathbb{R}^n : f_A(x) =1\} $$
+					define um Elipsoide com os eixos principais coincidindo com as 
+					direções dos autovetores, e $\frac{1}{\sqrt{\lambda_i}}$ os raios do elipsoide na 
+					direção do correspondente eixo.
 				</section>
 				
+				<section>
+					<figure>
+						<img src="elipsoid1.png">
+					</figure>
 
-				
+				</section>
+
+				<section>
+					<figure>
+						<img src="ellipsoid2.png">
+						<figcaption>Figuras feitas no <a href="https://c3d.libretexts.org/CalcPlot3D/index.html">C3D</a></figcaption>
+					</figure>
+
+				</section>
+				<section>
+					<h4 style="color: green;"> Relação de congruência </h4>
+					<p>Diremos que duas matrizes simétricas, $A_1$ e $A_2$ são congruentes, quando existir 
+						uma matriz invertível $P$ tal que 
+						$$ A_2 = P^TA_1P$$
+						Note que elas não precisam ser semelhantes.
+					</p>
+				</section>
+
+				<section>
+					<h4 style="color: green;"> Exemplos </h4>
+					\begin{gather}
+					A=\begin{bmatrix}1 & 0 \\ 0 & 0
+					\end{bmatrix}\text{  } B= \begin{bmatrix}-1 & 0 \\ 0 & 0
+					\end{bmatrix} \\
+					C=\begin{bmatrix}2 & 0 \\ 0 & 1
+					\end{bmatrix}\text{ }D=\begin{bmatrix}1 & 0 \\ 0 & 1
+					\end{bmatrix}
+					\end{gather}
+				</section>
+
 				
 					
 			</div>
