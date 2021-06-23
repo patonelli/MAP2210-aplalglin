@@ -35,6 +35,7 @@
 							<li>Os autovalores são todos reais</li>
 							<li>Tem $n$ autovetores ortogonais</li>
 							<li> $A= G^T \Lambda G$ (teorema espectral) </li>
+							<li> $A = LDL^T$ (Cholesky)</li>
 			
 						</ul>
 
@@ -74,6 +75,7 @@
 							<li> $\langle x,Ax \rangle > 0 \forall x \neq 0$</li>
 							<li> Todos os autovalores de $A$ são positivos </li>
 							<li> $\operatorname{det}(A_k)>0$ com $A_k =A[1:k,1:k]$</li>
+							<li> Os pivôs da matriz $D$ na decomposição de Cholesky são positivos.</li>
 						</ol>
 					</p>
 					
@@ -96,6 +98,17 @@
 						é uma forma quadrática. Se $A$ é definida positiva, a forma quadrática também é dita 
 						definida positiva.
 					</p>
+				</section>
+
+				<section> <h4 style="color: green;"> Otimização </h4>
+					<p>Se $f:\mathbb{R}^2 \to \mathbb{R}$ é uma função diferenciável na origem.
+						Então seu desenvolvimento em série de Taylor em torno da origem começa com:
+						\begin{gather} f(x,y)= f(0,0) + x\frac{\partial f}{\partial x}(0,0)x + \frac{\partial f}{\partial y}(0,0)y + \\
+						\frac{1}{2!}\left(\frac{\partial^2 f}{\partial x^2}(0,0)x^2 +\frac{\partial^2 f}{\partial y^2}(0,0)y^2 + 
+						\frac{\partial^2 f}{\partial x \partial y}(0,0)xy\right) + \dots
+						\end{gather}
+					</p>
+
 				</section>
 
 				<section>
@@ -140,6 +153,18 @@
 					\end{bmatrix}\text{ }D=\begin{bmatrix}1 & 0 \\ 0 & 1
 					\end{bmatrix}
 					\end{gather}
+				</section>
+				<section>
+					Se $A$ é uma matriz simétrica, e $A=G^T\Lambda G$ é uma decomposição espectral
+					<ul>
+						<li> O número de autovalores positivos de $A$, chamaremos de índice ($p$)</li> 
+						<li> Assinatura de $A$ é o número de autovalores positivos menos os negativos ($p-n$)</li>
+						<li> O posto de $A$ é $r$</li>
+					</ul>
+				</section>
+				<section>
+					<h4 style="color: green;"> Teorema da inércia de Sylvester </h4>
+					
 				</section>
 
 				
