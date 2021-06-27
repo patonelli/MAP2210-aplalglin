@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\parindent=0pt
+
+ \addtolength{\textheight}{3.5cm}
+ \addtolength{\oddsidemargin}{-1cm}
+ \addtolength{\evensidemargin}{-1cm}
+ \addtolength{\textwidth}{2cm}
+ \addtolength{\topmargin}{-2.0cm}
+\newcounter{questao}
+\newcommand{\quest}{\stepcounter{questao}{\bf \arabic{questao}.\ }}
+
+\begin{document}
+\hrule
+ {  \sf Aplicações de Álgebra Linear MAP2210 \hfill \fbox{Lista 4 - 2021}}
+\hrule
+
+\vspace{0.5cm}
+
+\thispagestyle{empty}
+%\fontsize{14}{16}\selectfont
+
+\quest  Encontre a forma de Jordan da matriz 
+$$ A= \begin{bmatrix}
+  0 & 1 & 0 \\
+  -4 & 4 & -4 \\
+  0 & 0 & 0
+\end{bmatrix} $$
+
+\vspace{0.3cm}
+
+\quest  Uma matriz $A \in \mathbb{R}^{3\times 3}$ tem um autovalor duplo $1$ e um 
+autovalor simples $3$. Os autovetores associados a $1$ e $3$ são respectivamente
+$$ \vec{v}_1=\begin{bmatrix}
+  1 \\ 0 \\ 1
+\end{bmatrix}\text{ e } \vec{v}_3 = \begin{bmatrix}
+  -1 \\ 0 \\ 1
+\end{bmatrix} $$ e um autovetor generalizado 
+$$ \vec{v}_2=\begin{bmatrix}
+  0 \\ 1 \\ 2
+\end{bmatrix}$$
+Ache a solução geral da equação
+$ \dot{x}= Ax$
+
+\vspace{0.3cm}
+
+\quest Mostre que uma matriz não nula $N$ nilpotente, não pode ser simétrica.
+
+\vspace{0.3cm}
+
+\quest Ache a decomposição $LDL^T$ da matriz
+$$A=\begin{bmatrix}
+  2 & -1 & 0 \\
+  -1 & 2 & 1 \\
+  0 & 1 & -2 
+\end{bmatrix}$$
+Verifique se $A$ é definida positiva.
+
+\vspace{0.3cm}
+
+\quest Mostre que se $A$ e $B$ são matrizes simétricas definidas positivas, então
+$A+B$ também é simétrica definida positiva.
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
