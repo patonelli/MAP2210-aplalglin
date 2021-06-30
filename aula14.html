@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Aula 14- Singular Value Decomposition </title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/aulaalglin.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="background-color: rgb(126, 15, 34);
+					 border: slategray;
+					 border-width: 10px;
+					 border-style: groove;">
+					<h2 style="color: rgb(250, 250, 250);">Tópico 14 <br> Decomposição em valores singulares
+					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
+				</section>
+
+				<section>
+					<h4 style="color: green;"> Matrizes retangulares diagonais </h4> 
+					<p>Uma matriz $\Sigma = [\sigma_{ij}] \in \mathbb{R}^{m\times n}$ é diagonal
+					quando $\sigma_{ij}=0$ se $i\neq j$	 </p>
+
+					$$ \Sigma = \begin{bmatrix} 
+					\sigma_{1} & 0 & 0 & \cdots & 0 \\
+					0 & \sigma_{2}& 0 & \cdots & 0 \\
+					\vdots & & \ddots & & \vdots \\
+					0 & \cdots & 0 & \sigma_{m}& 0
+					\end{bmatrix}$$
+				</section>
+				<section><h4 style="color: green;"> Decomposição de uma matriz retangular </h4> 
+					<p> Se $A \in \mathbb{R}^{m\times n}$ então existem 
+						<ul>
+							<li>Uma matriz diagonal $\Sigma \in \mathbb{R}^{m\times n}$ com elementos maiores ou iguais a zero.</li> 
+							<li>Uma matriz ortogonal $U \in \mathbb{R}^{m \times m}$</li> 
+							<li>Uma matriz ortogonal $V \in \mathbb{R}^{n \times n}$ </li>
+						</ul>
+						tais que
+						$$ A = U\Sigma V^T$$
+					</p>
+
+				</section>
+				<section>
+					<section>
+						<h4 style="color: green;"> Como achar a decomposição </h4> 
+					<p>Partimos de $A = U\Sigma V^T$ e fazemos</p>	
+					\begin{gather} AA^T = U\Sigma V^T V \Sigma^TU^T = U \Lambda U^T \\
+					\Lambda = \Sigma \Sigma^T = 
+					\begin{bmatrix} \sigma_1^2 & \cdots & 0\\ 
+					0 & \ddots & 0 \\
+					0 & \cdots & \sigma_m^2 \end{bmatrix}
+					\end{gather}
+					</section>
+					<section>
+						<p>Analogamente </p>
+						\begin{gather} A^TA =  V \Sigma^TU^T U\Sigma V^T = V \Lambda_1 V^T \\
+						\Lambda_1 = \Sigma^T \Sigma = 
+						\begin{bmatrix} \sigma_1^2 & \cdots & 0 & 0\\ 
+						0 & \ddots & 0 & 0\\
+						0 & \cdots & \sigma_m^2 & 0 \\
+						0 & \cdots & 0 & 0 \end{bmatrix}
+						\end{gather}	
+					</section>
+				</section>
+				<section>
+					<h4 style="color: green;"> Exemplos </h4> 
+				</section>
+
+				
+
+				
+					
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				dependencies: [
+		             { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true }, ] ,
+				hash: true,
+				math: {
+      					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      					config: 'TeX-AMS_HTML-full',
+                       // pass other options into `MathJax.Hub.Config()`
+      					TeX: { Macros: { RR: "{\\bf R}" } }
+    				},
+
+				chalkboard: {
+        				boardmarkerWidth: 3,
+        				chalkWidth: 4,
+        				chalkEffect: 0.5,
+        				src: null,
+        				readOnly: false,
+        				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				transition: 800,
+        				theme: "chalkboard",
+        				background: [ 'rgba(127,127,127,.1)' , path + 'img/greenboard.png' ],
+        				grid: { color: 'rgb(50,50,10,0.5)', distance: 50, width: 2},
+        				eraser: { src: path + 'img/sponge.png', radius: 20},
+        				boardmarkers : [
+                		{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                		{ color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                		{ color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                		{ color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                		{ color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                		{ color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        				],
+        				chalks: [
+                		{ color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                		{ color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                		{ color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                		{ color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                		{ color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                		{ color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        				]
+    				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealChalkboard, RevealMath, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
