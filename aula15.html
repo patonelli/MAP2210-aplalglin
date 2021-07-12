@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Aula 15- Pseudo-inversa e PCA </title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/aulaalglin.css" id="theme">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="background-color: rgb(126, 15, 34);
+					 border: slategray;
+					 border-width: 10px;
+					 border-style: groove;">
+					<h2 style="color: rgb(250, 250, 250);">Tópico 15 <br> Pseudo-inversa e PCA
+					<h4 style="color: white;">Pedro Aladar Tonelli</h4></div>
+				</section>
+
+				
+				
+				
+				
+				
+
+				
+
+				<section>
+					<h4 style="color: green;"> Pseudo-inversa </h4>
+					<p> Primeiro definimos a pseudo-inversa de uma matriz diagonal $m\times n$</p>
+				
+					$$ \Sigma = \begin{bmatrix}\sigma_1 & 0 & \cdots & 0 & 0 \\
+					\vdots & \ddots & & & \\
+					0 & 0 & \sigma_r& \cdots & 0 \\
+					0 & 0 & \cdots & 0 & 0 \\
+					0 & 0 & \cdots & 0 & 0 
+					 \end{bmatrix}$$
+				</section>
+				<section>
+					<p>Definimos a pseudo inversa como a matriz $n \times m$</p>
+					$$ \Sigma^+ = \begin{bmatrix}\frac{1}{\sigma_1}  & 0 & \cdots & 0 & 0 \\
+					\vdots & \ddots & & & \\
+					0 & 0 & \frac{1}{\sigma_r}& \cdots & 0 \\
+					0 & 0 & \cdots & 0 & 0 \\
+					0 & 0 & \cdots & 0 & 0 
+					 \end{bmatrix}$$
+				</section>
+				<section>
+					<p>No caso geral</p>
+					\begin{gather}
+					A=U\Sigma V^T \\
+					A^+ = V\Sigma^+ U^T
+					\end{gather}
+				</section>
+				<section>
+					<h4 style="color: green;"> Exemplos </h4>
+					$$\begin{bmatrix} 1 & 0  \\
+					0 & 3  \\
+					1 & 1   \end{bmatrix}\text{ }\begin{bmatrix} 
+					0.5 & -0.5  \\ -0.5 & 0.5 \end{bmatrix}
+					$$
+
+				</section>
+				<section>
+					<h4 style="color: green;"> Solução mais curta </h4>
+					<p>Definimos a <b>solução mais curta</b> de $Ax=b$</p>
+					$$ x^+ = A^+b$$
+
+				</section>
+				<section>
+					<h4 style="color: green;"> Exemplos </h4>
+
+				</section>
+				<section>
+					Se $A\in \mathbb{R}^{m\times n}$ tem posto $n$ então
+					$$A^+ = (A^TA)^{-1}A^T$$
+				</section>
+				<section>
+					<p>Se $A\in \mathbb{R}^{m\times n}$ e $x^+=A^+b$ então</p>
+					$$ \| Ax-b\| \geq \|Ax^+-b\| \text{ }\forall x \in \mathbb{R}^n$$
+				</section>
+
+				<section>
+					<h4 style="color: green;"> Análise da Componente principal </h4> 
+					\begin{array}{c|cccc|}
+					 & I_1 & I_2 & \cdots & I_n \\ \hline
+					x_1 & a_{11} & a_{12}& \cdots & a_{1n} \\
+					x_2 & a_{21}& a_{22}& \cdots & a_{2n}\\
+					\vdots& & & & \vdots \\
+					x_m & a_{m1} & a_{m2} & \cdots & a_{mn}
+					\end{array}
+				</section>
+
+				<section>
+					\begin{gather}
+					m_i = \frac{1}{n}\sum_{j=1}^n a_{ij} \\
+					X={x_{ij}} \text{ com } x_{ij} = a_{ij}-m_i \\
+					\frac{1}{n}XX^T \text{ matriz de covariança}
+					\end{gather}
+				</section>
+				<section>
+					Usando a decomposição espectral
+					$$ \frac{1}{n}XX^T = U \Sigma^2 U^T $$
+					as colunas de $U$ são as componentes principais
+				</section>
+
+				
+
+				
+					
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				dependencies: [
+		             { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true }, ] ,
+				hash: true,
+				math: {
+      					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+      					config: 'TeX-AMS_HTML-full',
+                       // pass other options into `MathJax.Hub.Config()`
+      					TeX: { Macros: { RR: "{\\bf R}" } }
+    				},
+
+				chalkboard: {
+        				boardmarkerWidth: 3,
+        				chalkWidth: 4,
+        				chalkEffect: 0.5,
+        				src: null,
+        				readOnly: false,
+        				toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+        				transition: 800,
+        				theme: "chalkboard",
+        				background: [ 'rgba(127,127,127,.1)' , path + 'img/greenboard.png' ],
+        				grid: { color: 'rgb(50,50,10,0.5)', distance: 50, width: 2},
+        				eraser: { src: path + 'img/sponge.png', radius: 20},
+        				boardmarkers : [
+                		{ color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                		{ color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                		{ color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                		{ color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                		{ color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                		{ color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        				],
+        				chalks: [
+                		{ color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                		{ color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                		{ color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                		{ color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                		{ color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                		{ color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                		{ color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        				]
+    				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealChalkboard, RevealMath, RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
